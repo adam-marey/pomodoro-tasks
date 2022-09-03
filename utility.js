@@ -10,3 +10,12 @@ export const CURRENT_WEEK_FILTER = 'Current Week';
 export const TODAY_FILTER = 'Today';
 export const PENDING_TASK_FILTER = 'Pending Task';
 export const COMPLETED_TASK_FILTER = 'Completed Task';
+
+export const defaultTaskValue = {
+  id: '',
+  title: '',
+  description: '',
+  duration: '',
+  createDate: '',
+  isCompleted: false,
+};
