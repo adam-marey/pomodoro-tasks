@@ -20,6 +20,44 @@ export const defaultTaskValue = {
   isCompleted: false,
 };
 
+// Utility
 export function formatDateToString(date) {
   return new Date(date).toLocaleDateString(DATE_FORMAT);
+}
+
+export function isTaskCompleted(duration, counter) {
+  return counter === duration * 60;
+}
+export function getFilterTasks(tasks, filter) {
+  const currentDate = new Date();
+  if (tasks.length && filter) {
+    switch (filter) {
+      case TODAY_FILTER:
+        return tasks.filter(
+          (t) => t.createdDate === formatDateToString(currentDate)
+        );
+      case CURRENT_WEEK_FILTER:
+        return tasks.filter(
+          (t) =>
+            t.createdDate <= formatDateToString(currentDate) ||
+            t.createdDate >= formatDateToString(currentDate.getDate() - 7)
+        );
+      case CURRENT_MONTH_FILTER:
+        return tasks.filter(
+          (t) =>
+            t.createdDate <= formatDateToString(currentDate) ||
+            t.createdDate >=
+              formatDateToString(
+                currentDate.setMonth(currentDate.getMonth() - 1)
+              )
+        );
+      case PENDING_TASK_FILTER:
+        return tasks.filter((t) => !t.isCompleted);
+      case COMPLETED_TASK_FILTER:
+        return tasks.filter((t) => t.isCompleted);
+      default:
+        return tasks;
+    }
+  }
+  return tasks;
 }
