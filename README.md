@@ -6,3 +6,5 @@
 * Edit - Delete a task
 * Pomodoro Feature
 * Start - Pause - Reset Clock
+
+# under cconstruction.
