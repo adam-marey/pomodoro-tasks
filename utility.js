@@ -19,3 +19,7 @@ export const defaultTaskValue = {
   createDate: '',
   isCompleted: false,
 };
+
+export function formatDateToString(date) {
+  return new Date(date).toLocaleDateString(DATE_FORMAT);
+}
