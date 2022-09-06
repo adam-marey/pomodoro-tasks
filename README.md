@@ -7,4 +7,4 @@
 * Pomodoro Feature
 * Start - Pause - Reset Clock
 
-# under cconstruction.
+- under construction.
